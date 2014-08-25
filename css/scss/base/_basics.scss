@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    BASICS
+\*------------------------------------*/
+
+*,
+*:before,
+*:after {
+	@include box-sizing;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+dl,
+ol,
+ul {
+	padding-left: $base-line-height;
+	padding-left: rem($base-line-height);
+}
+
+table {
+	padding-bottom: 0;
+	width: 100%;
+}

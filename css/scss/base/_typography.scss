@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+
+body {
+	font-family: "Open Sans", Verdana, Helvetica, sans-serif;
+	color: $font-color;
+}
+
+h1, .alpha,
+h2, .beta,
+h3, .gamma,
+h4, .delta,
+h5, .epsilon,
+h6, .zeta {
+
+}
+
+a {
+	text-decoration: none;
+	color: $primary-color;
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+		color: darken($primary-color, 5%);
+	}
+	&:active {
+		color: darken($primary-color, 10%);
+	}
+}
+
+p,
+blockquote {
+    //@include hypens();
+}

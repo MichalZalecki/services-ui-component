@@ -1,0 +1,101 @@
+$vr-use-rem: true !default;
+$vr-use-gradient: false !default;
+$vr-grid-color: #6AC8FF !default;
+
+$vr-default-font-size: 16;
+$vr-line-height: strip-unit($base-line-height);
+$vr-font-size: strip-unit($base-font-size);
+
+$vr-default-font-size: $vr-font-size; // tests
+
+$vr-headings: ("h1, .alpha", "h2, .beta", "h3, .gamma", "h4, .delta", "h5, .epsilon", "h6, .zeta"),
+              ( 36,           30,          24,           21,           18,             16) !default;
+
+html {
+    font-size: $vr-font-size * 1px;
+}
+
+@if $vr-use-gradient {
+    body {
+        background-image: -webkit-linear-gradient($vr-grid-color 1px, transparent 1px);
+        background-image: -moz-linear-gradient($vr-grid-color 1px, transparent 1px);
+        background-image: -ms-linear-gradient($vr-grid-color 1px, transparent 1px);
+        background-image: -o-linear-gradient($vr-grid-color 1px, transparent 1px);
+        background-image: linear-gradient($vr-grid-color 1px, transparent 1px);
+        background-size: 100% $base-line-height;
+    }
+}
+
+$vr-selector: ();
+@each $heading in nth($vr-headings, 1) {
+  $vr-selector: $vr-selector, unquote($heading) !global;
+}
+
+#{$vr-selector} {
+    font-weight: bold;
+    margin: 0;
+}
+
+@for $i from 1 through length(nth($vr-headings, 1)) {
+  #{nth(nth($vr-headings, 1), $i)} {
+
+    $var-h-font-size: strip-unit(nth(nth($vr-headings, 2), $i));
+    $vr-h-line-height: $vr-line-height;
+
+    @if $var-h-font-size > $vr-line-height {
+        $vr-h-line-height: $vr-line-height * ceil( $var-h-font-size / $vr-line-height );
+    }
+
+    @if $vr-use-rem {
+        font-size: $var-h-font-size * 1px;
+        font-size: $var-h-font-size / $vr-default-font-size * 1rem;
+    } @else {
+        font-size: $var-h-font-size / $vr-default-font-size * 1em;
+    }
+
+    line-height: $vr-h-line-height / $var-h-font-size;
+
+    @if $vr-use-rem {
+        margin-bottom: $vr-line-height * 1px;
+        margin-bottom: $vr-line-height / $vr-default-font-size * 1rem;
+    } @else {
+        margin-bottom: $vr-line-height / $var-h-font-size * 1em;
+    }
+  }
+}
+
+p,
+blockquote {
+    @if $vr-use-rem {
+        font-size: $vr-font-size * 1px;
+        font-size: $vr-font-size / $vr-default-font-size * 1rem;
+        margin: 0 0 $vr-line-height * 1px;
+        margin: 0 0 $vr-line-height / $vr-default-font-size * 1rem;
+    } @else {
+        font-size: $vr-font-size / $vr-default-font-size * 1em;
+        margin: 0 0 $vr-line-height / $vr-font-size * 1em;
+    }
+    line-height: $vr-line-height / $vr-font-size;
+}
+
+dl,
+ol,
+ul {
+    @if $vr-use-rem {
+        /*font-size: $vr-font-size * 1px;
+        font-size: $vr-font-size / $vr-default-font-size * 1rem;*/
+        margin: 0 0 $vr-line-height * 1px;
+        margin: 0 0 $vr-line-height / $vr-default-font-size * 1rem;
+    } @else {
+        /*font-size: $vr-font-size / $vr-default-font-size * 1em;*/
+        margin: 0 0 $vr-line-height / $vr-font-size * 1em;
+    }
+    padding: 0;
+}
+
+dd,
+dt,
+li {
+    line-height: $vr-line-height / $vr-font-size;
+    margin: 0;
+}
