@@ -154,9 +154,17 @@ li {
 }
 
 .services__service {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
   -webkit-flex: 1 0 100%;
   flex: 1 0 100%;
-  margin-bottom: 24px;
+  background: #FFFFFF;
+  border: 1px solid #e2e2e2;
+  margin: 24px 0;
+  position: relative;
 }
 @media screen and (min-width: 480px) {
   .services__service {
@@ -176,31 +184,17 @@ li {
     margin-right: 1%;
   }
 }
-
-.services__service__content {
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  border: 1px solid #e2e2e2;
-  position: relative;
-  background: #FFFFFF;
-}
-.services__service__content:hover {
-  z-index: 10;
-}
 @media screen and (min-width: 768px) {
-  .services__service__content:hover {
-    -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    -o-transform: scale(1.15);
-    transform: scale(1.15);
+  .services__service:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
   }
 }
 
-.services__service__content__thumbnail {
+.services__service__thumbnail {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -215,7 +209,7 @@ li {
   margin: 24px auto 12px;
   position: relative;
 }
-.services__service__content__thumbnail:after {
+.services__service__thumbnail:after {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -234,22 +228,22 @@ li {
   background: #0e6fb3;
   z-index: 1;
 }
-.services__service__content__thumbnail svg {
+.services__service__thumbnail svg {
   z-index: 2;
   position: relative;
 }
-.services__service__content__thumbnail:hover:after {
+.services__service__thumbnail:hover:after {
   background: #FFFFFF;
   height: 120%;
   left: -10%;
   top: -10%;
   width: 120%;
 }
-.services__service__content__thumbnail:hover svg {
+.services__service__thumbnail:hover svg {
   fill: #0e6fb3;
 }
 
-.services__service__content__thumbnail svg {
+.services__service__thumbnail svg {
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -260,7 +254,7 @@ li {
   max-width: 100%;
 }
 
-.services__service__content__title {
+.services__service__title {
   color: #0e6fb3;
   font-size: 24px;
   margin-bottom: 12px;
@@ -268,21 +262,21 @@ li {
   text-align: center;
 }
 
-.services__service__content__spec {
+.services__service__spec {
   list-style: none;
   margin-bottom: 84px;
   text-align: center;
   font-size: 14px;
 }
 
-.services__service__content__spec__attr {
+.services__service__spec__attr {
   border-top: 1px solid #e2e2e2;
   padding: 12px;
 }
-.services__service__content__spec__attr:hover {
+.services__service__spec__attr:hover {
   background: #e2e2e2;
 }
-.services__service__content__spec__attr:last-child {
+.services__service__spec__attr:last-child {
   border-bottom: 1px solid #e2e2e2;
 }
 
